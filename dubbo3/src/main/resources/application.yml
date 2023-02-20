@@ -1,0 +1,23 @@
+nacos:
+  uri: 127.0.0.1:8848
+  username: nacos
+  password: 123456
+dubbo:
+  application:
+    name: dubbo3
+  registry:
+    address: nacos://${nacos.uri}
+    username: ${nacos.username}
+    password: ${nacos.password}
+    group: DUBBO_GROUP
+    check: false
+  protocol:
+    name: dubbo
+    port: -1
+  provider:
+    group: DUBBO_GROUP
+    version: 1.0
+  consumer:
+    group: DUBBO_GROUP
+    version: 1.0
+    check: false

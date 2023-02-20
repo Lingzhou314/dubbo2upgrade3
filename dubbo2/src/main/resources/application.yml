@@ -1,0 +1,34 @@
+server:
+  port: 8090
+nacos:
+  uri: 127.0.0.1:8848
+  username: nacos
+  password: 123456
+spring:
+  application:
+    name: dubbo2
+  cloud:
+    nacos:
+      username: ${nacos.username}
+      password: ${nacos.password}
+      discovery:
+        enabled: true
+        register-enabled: true
+        server-addr: ${nacos.uri}
+        group: DUBBO_GROUP
+dubbo:
+  application:
+    name: dubbo2
+  registry:
+    address: spring-cloud://${nacos.uri}
+    check: false
+  protocol:
+    name: dubbo
+    port: -1
+  provider:
+    group: DUBBO_GROUP
+    version: 1.0
+  consumer:
+    group: DUBBO_GROUP
+    version: 1.0
+    check: false
