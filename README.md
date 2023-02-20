@@ -8,4 +8,4 @@
   * 启动项目dubbo3
   * 访问dubbo2首页http://localhost:8090
   * 访问dubbo3首页http://localhost:8080
-  * 后台控制台都报错No Provider
+  * 后台控制台都报错No Provider，但是nacos上都发布服务成功了
